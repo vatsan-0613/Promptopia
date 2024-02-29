@@ -2,14 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams} from 'next/navigation'
-
 import Form from '@components/Form';
 
 const EditPrompt = () => {
 
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const promptId = searchParams.get('id');
+  const {id : promptId} = router.query();
 
   const [submitting, setSubmitting] = useState(false); 
   const [post, setPost] = useState({
